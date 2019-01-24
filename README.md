@@ -9,4 +9,4 @@ cd flexgrid
 npm install
 grunt
 ```
-then open `http://<webserver_domain_name>/flexgrid/dist/index.html` in your favorite browser.
+When the prompt says "Waiting...", open `http://<webserver_domain_name>/flexgrid/dist/index.html` in your favorite browser.
