@@ -1,0 +1,175 @@
+$grid-steps: 12 !default;
+$fill-steps: 12 !default;
+$unit-steps: 12 !default;
+$unit-size: 20px !default;
+$padding-list: 4px, 8px !default;
+$m-break-min: 768px !default;
+$l-break-min: 992px !default;
+$x-break-min: 1200px !default;
+
+$order-steps: max($grid-steps, $fill-steps, $unit-steps);
+$s-break-max: $m-break-min - 1px;
+$m-break-max: $l-break-min - 1px;
+$l-break-max: $x-break-min - 1px;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	//overflow: hidden;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	//overflow: auto;
+}
+
+img {
+	max-height: 100%;
+	width: auto;
+	margin: auto;
+}
+
+@mixin implicit($name) {
+	.#{$name}-row, .#{$name}-col {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.#{$name}-row {
+		flex-direction: row;
+	}
+
+	.#{$name}-col {
+		flex-direction: column;
+	}
+
+	.#{$name}-nowrap {
+		flex-wrap: nowrap;
+	}
+
+	.#{$name}-start {
+		justify-content: flex-start;
+	}
+
+	.#{$name}-middle {
+		justify-content: center;
+	}
+
+	.#{$name}-end {
+		justify-content: flex-end;
+	}
+
+	.#{$name}-left {
+		align-items: flex-start;
+	}
+
+	.#{$name}-center {
+		align-items: center;
+	}
+
+	.#{$name}-right {
+		align-items: flex-end;
+	}
+
+	.#{$name}-stretch {
+		align-items: stretch;
+	}
+
+	.#{$name}-self-left {
+		align-self: flex-start;
+	}
+
+	.#{$name}-self-center {
+		align-self: center;
+	}
+
+	.#{$name}-self-right {
+		align-self: flex-end;
+	}
+
+	.#{$name}-self-stretch {
+		align-self: stretch;
+	}
+
+	.#{$name}-hide {
+		display: none;
+	}
+
+	.#{$name}-show {
+		display: initial;
+	}
+
+	@for $i from 1 through $grid-steps {
+		.#{$name}-grid-#{$i} {
+			flex: 0 0 ($i / $grid-steps * 100%);
+		}
+	}
+
+	@for $i from 1 through $fill-steps {
+		.#{$name}-fill-#{$i} {
+			flex: $i;
+		}
+	}
+
+	@for $i from 1 through $unit-steps {
+		.#{$name}-unit-#{$i} {
+			flex: 0 0 ($i * $unit-size);
+		}
+	}
+
+	.#{$name}-auto {
+		flex: 0 1 auto;
+	}
+
+	@for $i from 1 through $order-steps {
+		.#{$name}-order-#{$i} {
+			order: $i;
+		}
+	}
+
+	$i: 1;
+
+	@each $padding in $padding-list {
+		.#{$name}-pad-#{$i} {
+			padding: $padding / 2;
+
+			& > * {
+				padding: $padding / 2;
+			}
+		}
+
+		$i: $i + 1;
+	}
+}
+
+@mixin explicit($name) {
+}
+
+@include implicit("s");
+
+@media (max-width: $s-break-max) {
+	@include explicit("s");
+}
+
+@media (min-width: $m-break-min) {
+	@include implicit("m");
+
+	@media (max-width: $m-break-max) {
+		@include explicit("m");
+	}
+}
+
+@media (min-width: $l-break-min) {
+	@include implicit("l");
+
+	@media (max-width: $l-break-max) {
+		@include explicit("l");
+	}
+}
+
+@media (min-width: $x-break-min) {
+	@include implicit("x");
+	@include explicit("x");
+}

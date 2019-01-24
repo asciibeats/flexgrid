@@ -1,0 +1,73 @@
+//@import "normalize/import-now";
+
+$unit-steps: 21;
+$padding-list: 6px, 12px;
+/*$m-break-min: 1000px;
+$l-break-min: 2000px;
+$x-break-min: 3000px;*/
+
+@import 'flexgrid';
+
+/*.s-col > *, .s-row > * {
+	border: 1px dotted black;
+}
+
+.s-col, .s-row {
+	border: 1px solid black;
+}*/
+
+.colored {
+	& > header {
+		background-color: RoyalBlue;
+
+		& > div > * {
+			background-color: SkyBlue;
+		}
+	}
+
+	& > nav {
+		background-color: Red;
+
+		& > div > * {
+			background-color: Orange;
+		}
+	}
+
+	& > div:first-of-type {
+		background-color: Gainsboro;
+
+		& > div > * {
+			background-color: FloralWhite;
+		}
+
+		& > div > div > div {
+			background-color: Tan;
+		}
+	}
+
+	& > div:last-of-type {
+		background-color: Gainsboro;
+
+		& > div > * {
+			background-color: FloralWhite;
+		}
+	}
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+}
+
+.layout {
+	width: 100%;
+	//height: 100%;
+	min-width: 300px;
+	min-height: 450px;
+	overflow: auto;
+	//overflow: hidden;
+}
+
+.image {
+	height: 90px;
+}
