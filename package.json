@@ -1,10 +1,19 @@
 {
   "name": "flexgrid",
   "version": "1.0.2",
-  "description": "",
-  "dependencies": {
-    "clean": "^4.0.2"
+  "description": "A css library for responsive webdesign",
+  "author": "Tilman M. Jaeschke",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asciibeats/flexgrid.git"
   },
+  "keywords": [
+    "css",
+    "responsive",
+    "grid",
+    "webdesign"
+  ],
+  "license": "MIT",
   "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-autoprefixer": "^3.0.3",
@@ -14,6 +23,7 @@
     "grunt-contrib-htmlmin": "^3.0.0",
     "grunt-contrib-sass": "^0.9.2",
     "grunt-contrib-watch": "^1.1.0",
-    "normalize-scss": "^5.0.3"
+    "normalize-scss": "^5.0.3",
+    "clean": "^4.0.2"
   }
 }
