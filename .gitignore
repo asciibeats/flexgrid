@@ -1,5 +1,5 @@
-node_modules
-build
-dist
-.sass-cache
+/node_modules
+/build
+/dist
+/.sass-cache
 package-lock.json
